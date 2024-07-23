@@ -1,11 +1,10 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 
 setup(
     name='rle',
     description="a package used for compress sparse tensor",
-    packages=["rle"],
-    package_data={"rle": "rle.py"},
+    packages=find_packages('rle'),
     ext_modules=[
         CUDAExtension('rle_cuda', [
             'rle_cuda.cpp',
